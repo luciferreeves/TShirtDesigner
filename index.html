@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TShirt Designer Using Fabric.JS</title>
+    <title>TShirt Designer</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -16,6 +16,15 @@
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <style>
+        .color-preview {
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid black;
+            margin: 1px;
+            cursor: pointer;
+        }
+    </style>
   </head>
   <body>
       <div class="container mt-5">
@@ -25,9 +34,54 @@
           </div>
           <div class="row mt-5">
               <div class="col">
-                  T-Shirt Options
+                <nav>
+                    <div class="nav nav-pills" id="nav-tab" role="tablist">
+                      <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#options" type="button" role="tab">T-Shirt Options</button>
+                      <button class="nav-link" data-bs-toggle="tab" data-bs-target="#customize" type="button" role="tab">Customization</button>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="options" role="tabpanel" tabindex="0">
+                        <div class="mt-3">
+                            <p class="lead">Choose a T-Shirt Type:</p>
+                            <select id="tshirttype" class="form-select">                        
+                                <option value="old/img/crew_front.png" selected="selected">Short Sleeve</option>
+                                <option value="old/img/mens_longsleeve_front.png">Long Sleeve</option>                                        
+                                <option value="old/img/mens_hoodie_front.png">Hoodies</option>                    
+                                <option value="old/img/mens_tank_front.png">Tank tops</option>
+                            </select>
+                        </div>
+                        <div class="mt-3">
+                            <p class="lead">Choose a T-Shirt Color:</p>
+							<ul class="nav">
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="White" style="background-color:#ffffff;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Dark Heather" style="background-color:#616161;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Gray" style="background-color:#f0f0f0;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Charcoal" style="background-color:#5b5b5b;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Black" style="background-color:#222222;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Heather Orange" style="background-color:#fc8d74;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Heather Dark Chocolate" style="background-color:#432d26;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Salmon" style="background-color:#eead91;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Chesnut" style="background-color:#806355;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Dark Chocolate" style="background-color:#382d21;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Citrus Yellow" style="background-color:#faef93;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Avocado" style="background-color:#aeba5e;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Kiwi" style="background-color:#8aa140;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Irish Green" style="background-color:#1f6522;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Scrub Green" style="background-color:#13afa2;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Teal Ice" style="background-color:#b8d5d7;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Heather Sapphire" style="background-color:#15aeda;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Sky" style="background-color:#a5def8;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Antique Sapphire" style="background-color:#0f77c0;"></li>
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Heather Navy" style="background-color:#3469b7;"></li>							
+								<li class="color-preview" data-bs-toggle="tooltip" data-bs-placement="top" title="Cherry Red" style="background-color:#c50404;"></li>
+							</ul>
+						</div>
+                    </div>
+                    <div class="tab-pane fade" id="customize" role="tabpanel" tabindex="0">...</div>
+                </div>
               </div>
-              <div class="col">
+              <div class="col-6">
                   T-Shirt Preview
               </div>
               <div class="col">
@@ -36,4 +90,8 @@
           </div>
       </div>
   </body>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 </html>
